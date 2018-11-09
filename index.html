@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta content="读书时长可兑换书币，免费阅读正版书籍和原创小说、收听有声小说和大咖讲书，同时还提供独特的公众号文章阅读体验。微信读书，不止读书。" name="description">
-    <meta content="微信读书,微信阅读,微信,小说,阅读,免费小说,weread,原创,正版,书城,追书,网络小说,有声小说,听书,讲书,电子书,漫画,晋江,qq,book" name="keywords">
-    <title>微信读书 让阅读不再孤独</title>
-    <link data-react-helmet="true" rel="shortcut icon" type="image/png" href="../../imgs/favicon.ico">
+    <meta content=" 我们是微茫的存在，折射出心里每一丝憧憬和每一缕不甘、城市、流光溢彩、夜航、航班" name="description">
+    <meta content=" 我们是微茫的存在，折射出心里每一丝憧憬和每一缕不甘、城市、流光溢彩、夜航、航班" name="keywords">
+    <title>wdcorner-site</title>
+    <link data-react-helmet="true" rel="shortcut icon" type="image/png" href="./imgs/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/fullPage.js/3.0.3/fullpage.min.css">
 </head>
 <!-- 
@@ -48,6 +48,9 @@
     .section4{
         background-image: url('./imgs/bg04.jpg');
     }
+    #fp-nav ul li a span, .fp-slidesNav ul li a span{
+        background: #ffffff;
+    }
 </style>
 <body>
     <div id="fullpage">
@@ -81,10 +84,10 @@
             memu:'#menu',
             lockAnchors: false,
 	        anchors:['1', '2','3','4'],
-            navigation: true,
+            navigation: true,   //如果设置为true，则会显示一个由小圆圈组成的导航栏。
             navigationPosition: 'right',
-            navigationTooltips: ['page1','page2','page3','page4'],
-            showActiveTooltip: true,
+            // navigationTooltips: ['page1','page2','page3','page4'],
+            showActiveTooltip: false,  //显示垂直导航中主动查看节的持久工具提示
             slidesNavigation: true,
             slidesNavPosition: 'bottom',
 
@@ -98,7 +101,7 @@
             easingcss3: 'linear',
             loopTop: false,     //定义在第一节中向上滚动是否滚动到最后一个。
             loopBottom: false,    //定义滚动到最后一节是否应该滚动到第一个。
-            continuousVertical: true,   //定义是否在最后一个区段向下滚动，或是否应该向下滚动到第一个区段，或如果在第一个区段向上滚动时是否应该滚动到最后一个区段
+            continuousVertical: false,   //定义是否在最后一个区段向下滚动，或是否应该向下滚动到第一个区段，或如果在第一个区段向上滚动时是否应该滚动到最后一个区段
             
         });
     </script>
