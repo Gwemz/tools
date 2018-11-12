@@ -8,6 +8,7 @@
     <meta content=" 我们是微茫的存在，折射出心里每一丝憧憬和每一缕不甘、城市、流光溢彩、夜航、航班" name="keywords">
     <title>wdcorner-site</title>
     <link data-react-helmet="true" rel="shortcut icon" type="image/png" href="./imgs/favicon.ico">
+    <link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/fullPage.js/3.0.3/fullpage.min.css">
 </head>
 <!-- 
@@ -22,6 +23,7 @@
         text-align: center;
         color: #ffffff;
         font-size: 16px;
+        position: relative;
     }
 
     .section p{
@@ -55,55 +57,169 @@
 <body>
     <div id="fullpage">
         <div class="section section1">
-            <p>千年琵笆，万年筝，一把二胡拉一生，唢呐一响全剧终，初闻不识唢呐音，再听已是棺中人。黄泉路上人消沉，望乡台上忆前尘。孟婆一汤忘今生，奈何桥上渡残魂，来生再做华夏人。</p>
+            <p class="first-content">千年琵笆，万年筝，一把二胡拉一生，唢呐一响全剧终，初闻不识唢呐音，再听已是棺中人。黄泉路上人消沉，望乡台上忆前尘。孟婆一汤忘今生，奈何桥上渡残魂，来生再做华夏人。</p>
         </div>
         <div class="section section2">
             <p>
                 我们是微茫的存在，折射出心里每一丝憧憬和每一缕不甘、城市、流光溢彩、夜航、航班
             </p>
         </div>
-        <div class="section section3">section3</div>
+        <div class="section section3">
+            <div class="slide"> 幻灯片 1 </div>
+            <div class="slide"> 幻灯片 2 </div>
+            <div class="slide"> 幻灯片 3 </div>
+            <div class="slide"> 幻灯片 4 </div>
+        </div>
         <div class="section section4">section4</div>
     </div>
-    <!-- <script type="text/javascript" src="../../js/jquery.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/3.0.3/fullpage.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/3.0.3/fullpage.extensions.min.js"></script>
     <script>
+
         // new fullpage('#fullpage', {
-        //     //options here
-        //     autoScrolling:true,
-        //     scrollHorizontally: true
+        //     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+        //     // sectionsColor: ['yellow', 'orange', '#C0C0C0', '#ADD8E6'],
+        //     sectionsColor: ['#ff7875', '#ffd666', '#95de64', '#ffd8bf'],
+        //     memu:'#menu',
+        //     lockAnchors: false,
+	    //     anchors:['1', '2','3','4'],
+        //     navigation: true,   //如果设置为true，则会显示一个由小圆圈组成的导航栏。
+        //     navigationPosition: 'right',
+        //     // navigationTooltips: ['page1','page2','page3','page4'],
+        //     showActiveTooltip: false,  //显示垂直导航中主动查看节的持久工具提示
+        //     slidesNavigation: true,
+        //     slidesNavPosition: 'bottom',
+        //     // 滚动
+        //     css3: true,
+        //     scrollingSpeed: 500,
+        //     autoScrolling: true,
+        //     fitToSection: true,
+        //     fitToSectionDelay: 1000,
+        //     scrollBar:false,
+        //     easingcss3: 'linear',
+        //     loopTop: false,     //定义在第一节中向上滚动是否滚动到最后一个。
+        //     loopBottom: false,    //定义滚动到最后一节是否应该滚动到第一个。
+        //     continuousVertical: false,   //定义是否在最后一个区段向下滚动，或是否应该向下滚动到第一个区段，或如果在第一个区段向上滚动时是否应该滚动到最后一个区段
+        //     dragAndMove:true,
+        //     fadingEffect: true,      //定义是否使用淡入淡出效果，而不是默认的滚动效果
+        //     scrollHorizontally: true,
+        //     controlArrows: true,
+        //     verticalCentered: true,
+        //     resize: true
+        // });
+        initialize(false)
+        function initialize(hasScrollBar){
+            new fullpage('#fullpage',{
+                licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+                controlArrows: false,
+                continuousVertical: true,
+                navigation: true,
+                navigationPosition: 'right',
+                slidesNavigation: true,
+                // parallax: true,
+                // parallaxKey: 'YWx2YXJvdHJpZ28uY29tXzlNZGNHRnlZV3hzWVhnPTFyRQ==',
+                // parallaxOptions: {
+                //     type: 'reveal',
+                //     percentage: 62,
+                //     property: 'translate'
+                // },
+                scrollBar: hasScrollBar,
+                // scrollHorizontally: true,        //需要购买。。。
+                // fadingEffect: true,
+		        // fadingEffectKey: 'YWx2YXJvdHJpZ28uY29tXzAzN1ptRmthVzVuUldabVpXTjBiNXo=',
+                // dragAndMove: true,
+                // dragAndMoveKey: 'YWx2YXJvdHJpZ28uY29tX0EyMlpISmhaMEZ1WkUxdmRtVT0wWUc=',
+                // responsiveWidth: 1100,
+                // afterResponsive: function(isResponsive){
+
+                // }
+                afterLoad:function(anchorLink,index){
+
+                },
+                onLeave:function(index,newIndex,direction){
+
+                },
+                afterRender:function(){
+
+                }
+            })
+        }
+
+        // document.getElementById('turnOn').addEventListener('click', function(){
+        //     removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
+        //     addClass(this, 'active');
+
+        //     fullpage_api.parallax.init();
         // });
 
-        // //methods
-        // fullpage_api.setAllowScrolling(false);
+        // document.getElementById('turnOff').addEventListener('click', function(){
+        //     removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
+        //     addClass(this, 'active');
 
-        new fullpage('#fullpage', {
-            licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
-            // sectionsColor: ['yellow', 'orange', '#C0C0C0', '#ADD8E6'],
-            sectionsColor: ['#ff7875', '#ffd666', '#95de64', '#ffd8bf'],
-            memu:'#menu',
-            lockAnchors: false,
-	        anchors:['1', '2','3','4'],
-            navigation: true,   //如果设置为true，则会显示一个由小圆圈组成的导航栏。
-            navigationPosition: 'right',
-            // navigationTooltips: ['page1','page2','page3','page4'],
-            showActiveTooltip: false,  //显示垂直导航中主动查看节的持久工具提示
-            slidesNavigation: true,
-            slidesNavPosition: 'bottom',
+        //     fullpage_api.parallax.destroy();
+        // });
 
-            // 滚动
-            css3: true,
-            scrollingSpeed: 500,
-            autoScrolling: true,
-            fitToSection: true,
-            fitToSectionDelay: 1000,
-            scrollBar:false,
-            easingcss3: 'linear',
-            loopTop: false,     //定义在第一节中向上滚动是否滚动到最后一个。
-            loopBottom: false,    //定义滚动到最后一节是否应该滚动到第一个。
-            continuousVertical: false,   //定义是否在最后一个区段向下滚动，或是否应该向下滚动到第一个区段，或如果在第一个区段向上滚动时是否应该滚动到最后一个区段
-            
-        });
+        // // Applying the different options when changing the select boxes
+        // document.querySelectorAll('select').forEach(function(selectBox){
+        //     selectBox.addEventListener('change', function(){
+
+        //         var fullPageOption = this.getAttribute('data-option');
+        //         var value = this.value;
+
+        //         if(fullPageOption === 'offset'){
+        //             fullpage_api.parallax.setOption('offset', value);
+        //         }
+
+        //         else if(fullPageOption === 'type'){
+        //             fullpage_api.parallax.setOption('type', value);
+        //         }
+
+        //         else if(fullPageOption === 'autoScrolling'){
+        //             fullpage_api.setAutoScrolling(value === 'true');
+        //         }
+
+        //         // scrollBar
+        //         // Because there's no method `setScrollBar` we have to destryo and initialice fullPage.js again
+        //         // but this time we'll initialice it again with the scrollBar:true option
+        //         else{
+        //             fullpage_api.destroy('all');
+        //             initialize(value === 'true');
+        //         }
+        //     });
+        // });
+
+        // //utils
+        // function addClass(item, className) {
+        //     if (item.classList){
+        //         item.classList.add(className);
+        //     }
+        //     else{
+        //     item.className += ' ' + className;
+        //     }
+        //     return item;
+        // }
+
+        // function removeClass(item, className){
+        //     if (item.classList){
+        //         item.classList.remove(className);
+        //     }
+        //     else{
+        //         item.className = item.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        //     }
+        //     return item;
+        // }
+
+        // function index(item, selector) {
+        //     var children = item.parentNode.childNodes;
+        //     var num = 0;
+        //     for (var i=0; i<children.length; i++) {
+        //         if (children[i] == item) return num;
+        //         if (children[i].nodeType==1) num++;
+        //     }
+        //     return -1;
+        // }
     </script>
 </body>
 </html>
