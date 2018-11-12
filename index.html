@@ -8,7 +8,8 @@
     <meta content=" 我们是微茫的存在，折射出心里每一丝憧憬和每一缕不甘、城市、流光溢彩、夜航、航班" name="keywords">
     <title>wdcorner-site</title>
     <link data-react-helmet="true" rel="shortcut icon" type="image/png" href="./imgs/favicon.ico">
-    <link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- <link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/fullPage.js/3.0.3/fullpage.min.css">
 </head>
 <!-- 
@@ -45,7 +46,8 @@
         width: 80%;
         margin:0 auto;
         line-height: 35px;
-        text-align: justify;
+        /* text-align: justify; */
+        text-align: center;
         text-justify: inter-ideograph;
     }
     .section1,.section2,.section3,.section4{
@@ -115,6 +117,15 @@
         transition-delay: .7s;
         bottom: 40%;
     }
+    .copyright{
+        position: absolute;
+        bottom: 2%;
+        left:0;
+        right: 0;
+        margin:auto;
+        font-size: 8px;
+        color: rgba(255, 255, 255, .8);
+    }
 </style>
 <body>
     <div id="fullpage">
@@ -142,10 +153,13 @@
                 毕生所求，唯一乐尔，一切随心，万般随缘。
             </p>
             <a class="enter" href="http://gwem.tk/" target="_self">进入主站</a>
+            <p class="copyright">
+                本站由winter Guo提供技术支持
+            </p>
         </div>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
     <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/3.0.3/fullpage.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/3.0.3/fullpage.extensions.min.js"></script>
     <script>
