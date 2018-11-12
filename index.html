@@ -34,6 +34,7 @@
         color: #ffffff;
         font-size: 16px;
         position: relative;
+        overflow: hidden;
     }
 
     .section p{
@@ -64,7 +65,7 @@
     }
     .first-content{
         opacity: 0;
-        transition: all ease 1.7s;
+        transition: all 1.7s;
     }
     .active .first-content{
         opacity: 1;
@@ -80,19 +81,43 @@
         transform: scale(1,1);
         transition-delay: .7s;
     }
+    .fourth-content{
+        position: absolute;
+        left:0;
+        right: 0;
+        margin:auto;
+        top: -5%;
+        opacity: 0;
+        transition: all 1.7s;
+    }
+    .active .fourth-content{
+        top: 35%;
+        opacity: 1;
+        transition-delay: .7s;
+    }
     .enter{
-        width: 100px;
-        margin:0 auto;
-        padding:10px 20px;
+        position: absolute;
+        width: 80px;
+        padding:8px 15px;
         border-radius: 25px;
         border:1px solid #ffffff;
-        margin-top: 20px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        bottom: -10%;
+        transition: all 1.7s;
+    }
+    .active .enter{
+        transition-delay: .7s;
+        bottom: 40%;
     }
 </style>
 <body>
     <div id="fullpage">
         <div class="section section1">
-            <p class="first-content">千年琵笆，万年筝，一把二胡拉一生，唢呐一响全剧终，初闻不识唢呐音，再听已是棺中人。黄泉路上人消沉，望乡台上忆前尘。孟婆一汤忘今生，奈何桥上渡残魂，来生再做华夏人。</p>
+            <p class="first-content">
+                我曾在天上见过地的繁华，汇成一道道光的流河；在海上，我曾见过半边的彩虹，静如止水的海面上跃出了两只海豚，渐行渐远。
+            </p>
         </div>
         <div class="section section2">
             <p class="second-content">
@@ -105,7 +130,10 @@
             <div class="slide"> 幻灯片 3 </div>
             <div class="slide"> 幻灯片 4 </div>
         </div>
-        <div class="section section4">section4
+        <div class="section section4">
+            <p class="fourth-content">
+                毕生所求，唯一乐尔，一切随心，万般随缘。
+            </p>
             <div class="enter">进入主站</div>
         </div>
     </div>
