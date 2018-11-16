@@ -171,39 +171,8 @@
     <!-- <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
     <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/3.0.3/fullpage.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/fullPage.js/3.0.3/fullpage.extensions.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
-
-        // new fullpage('#fullpage', {
-        //     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
-        //     // sectionsColor: ['yellow', 'orange', '#C0C0C0', '#ADD8E6'],
-        //     sectionsColor: ['#ff7875', '#ffd666', '#95de64', '#ffd8bf'],
-        //     memu:'#menu',
-        //     lockAnchors: false,
-	    //     anchors:['1', '2','3','4'],
-        //     navigation: true,   //如果设置为true，则会显示一个由小圆圈组成的导航栏。
-        //     navigationPosition: 'right',
-        //     // navigationTooltips: ['page1','page2','page3','page4'],
-        //     showActiveTooltip: false,  //显示垂直导航中主动查看节的持久工具提示
-        //     slidesNavigation: true,
-        //     slidesNavPosition: 'bottom',
-        //     // 滚动
-        //     css3: true,
-        //     scrollingSpeed: 500,
-        //     autoScrolling: true,
-        //     fitToSection: true,
-        //     fitToSectionDelay: 1000,
-        //     scrollBar:false,
-        //     easingcss3: 'linear',
-        //     loopTop: false,     //定义在第一节中向上滚动是否滚动到最后一个。
-        //     loopBottom: false,    //定义滚动到最后一节是否应该滚动到第一个。
-        //     continuousVertical: false,   //定义是否在最后一个区段向下滚动，或是否应该向下滚动到第一个区段，或如果在第一个区段向上滚动时是否应该滚动到最后一个区段
-        //     dragAndMove:true,
-        //     fadingEffect: true,      //定义是否使用淡入淡出效果，而不是默认的滚动效果
-        //     scrollHorizontally: true,
-        //     controlArrows: true,
-        //     verticalCentered: true,
-        //     resize: true
-        // });
         initialize(false)
         function initialize(hasScrollBar){
             new fullpage('#fullpage',{
@@ -213,23 +182,7 @@
                 navigation: true,
                 navigationPosition: 'right',
                 slidesNavigation: true,
-                // parallax: true,
-                // parallaxKey: 'YWx2YXJvdHJpZ28uY29tXzlNZGNHRnlZV3hzWVhnPTFyRQ==',
-                // parallaxOptions: {
-                //     type: 'reveal',
-                //     percentage: 62,
-                //     property: 'translate'
-                // },
                 scrollBar: hasScrollBar,
-                // scrollHorizontally: true,        //需要购买。。。
-                // fadingEffect: true,
-		        // fadingEffectKey: 'YWx2YXJvdHJpZ28uY29tXzAzN1ptRmthVzVuUldabVpXTjBiNXo=',
-                // dragAndMove: true,
-                // dragAndMoveKey: 'YWx2YXJvdHJpZ28uY29tX0EyMlpISmhaMEZ1WkUxdmRtVT0wWUc=',
-                // responsiveWidth: 1100,
-                // afterResponsive: function(isResponsive){
-
-                // }
                 afterLoad:function(anchorLink,index){
 
                 },
@@ -242,79 +195,34 @@
             })
         }
 
-        // document.getElementById('turnOn').addEventListener('click', function(){
-        //     removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
-        //     addClass(this, 'active');
+        $('<audio src="./music/bg_music.m4a" height="0" width="0" id="bgMusic" autoplay loop><source src="./music/bg_music.m4a"></audio>').appendTo('body');
+        var voice = document.getElementById('bgMusic');
+        voice.play()
+        //判断 WeixinJSBridge 是否存在
+        if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+            voice.play();
+        } else {
+            //监听客户端抛出事件"WeixinJSBridgeReady"
+            if (document.addEventListener) {
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    voice.play();
+                }, false);
+            } else if (document.attachEvent) {
+                document.attachEvent("WeixinJSBridgeReady", function () {
+                    voice.play();
+                });
+                document.attachEvent("onWeixinJSBridgeReady", function () {
+                    voice.play();
+                });
+            }
+        }    
+        // 微信分享
+        // $.WXshare({
+        //     sTitle: 'wdcorner-site',
+        //     sDesc: '我们是微茫的存在，折射出心里每一丝憧憬和每一缕不甘、城市、流光溢彩、夜航、航班', //描述
+        //     sImgurl: './imgs/poster.jpg'
+        // })
 
-        //     fullpage_api.parallax.init();
-        // });
-
-        // document.getElementById('turnOff').addEventListener('click', function(){
-        //     removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
-        //     addClass(this, 'active');
-
-        //     fullpage_api.parallax.destroy();
-        // });
-
-        // // Applying the different options when changing the select boxes
-        // document.querySelectorAll('select').forEach(function(selectBox){
-        //     selectBox.addEventListener('change', function(){
-
-        //         var fullPageOption = this.getAttribute('data-option');
-        //         var value = this.value;
-
-        //         if(fullPageOption === 'offset'){
-        //             fullpage_api.parallax.setOption('offset', value);
-        //         }
-
-        //         else if(fullPageOption === 'type'){
-        //             fullpage_api.parallax.setOption('type', value);
-        //         }
-
-        //         else if(fullPageOption === 'autoScrolling'){
-        //             fullpage_api.setAutoScrolling(value === 'true');
-        //         }
-
-        //         // scrollBar
-        //         // Because there's no method `setScrollBar` we have to destryo and initialice fullPage.js again
-        //         // but this time we'll initialice it again with the scrollBar:true option
-        //         else{
-        //             fullpage_api.destroy('all');
-        //             initialize(value === 'true');
-        //         }
-        //     });
-        // });
-
-        // //utils
-        // function addClass(item, className) {
-        //     if (item.classList){
-        //         item.classList.add(className);
-        //     }
-        //     else{
-        //     item.className += ' ' + className;
-        //     }
-        //     return item;
-        // }
-
-        // function removeClass(item, className){
-        //     if (item.classList){
-        //         item.classList.remove(className);
-        //     }
-        //     else{
-        //         item.className = item.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-        //     }
-        //     return item;
-        // }
-
-        // function index(item, selector) {
-        //     var children = item.parentNode.childNodes;
-        //     var num = 0;
-        //     for (var i=0; i<children.length; i++) {
-        //         if (children[i] == item) return num;
-        //         if (children[i].nodeType==1) num++;
-        //     }
-        //     return -1;
-        // }
         var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement("script");
@@ -322,6 +230,67 @@
             var s = document.getElementsByTagName("script")[0]; 
             s.parentNode.insertBefore(hm, s);
         })();
+
+    /**
+    * 禁用动态添加脚本，防止广告加载
+    *
+    * @param valid bool? true(valid)|false(invalid)|other(off)
+    * @param rule array 配置允许(valid)|不允许(invalid)的脚本规则：支持regex、string、function
+    */
+    (function (valid, rule) {
+        if (typeof Element === 'undefined') {
+            return false;
+        }
+        var origin = new RegExp('^' + location.origin),
+                Ele = Element;
+        each(['appendChild', 'insertBefore', 'insertAfter'], proxy);
+
+        function proxy(prop) {
+            var proxy_obj = Ele.prototype[prop];
+            Ele.prototype[prop] = function (elem) {
+                if (elem.children && !elem.children.length) {
+                    var tag = elem.tagName.toLowerCase();
+                    if (tag == 'script' && isBanScript(elem)) {
+                        var substitute = document.createElement('script');
+                        substitute.innerHTML = '// 禁用脚本：' + elem.src;
+                        elem = substitute;
+                    }
+                }
+                return proxy_obj.apply(this, arguments);
+            };
+        }
+
+        function isBanScript(script) {
+            for(var i =0;i<rule.length;i++){
+                if(script.src.indexOf(rule[i])>=0){
+                    return false;
+                }
+            }
+            if (origin.test(script.src)) return false;
+            return valid === each(rule, match);
+
+            function match(val) {
+                var type = typeof val;
+                if (type === 'string') {
+                    if (script.src == val) return true;
+                } else if (type === 'function') {
+                    if (val(script)) return true;
+                } else {
+                    if (val.test(script.src)) return true;
+                }
+                return false;
+            }
+        }
+
+        function each(arr, fn) {
+            if (arr) {
+                for (var i = 0, n = arr.length; i < n; i++) {
+                    if (fn.call(arr[i], arr[i], i) === true) return false;
+                }
+            }
+            return true;
+        }
+    })(true, ['https://hm.baidu.com/hm.js?f9e66d16e28d1e6fb7c1715d4fa82a28']);
     </script>
 </body>
 </html>
